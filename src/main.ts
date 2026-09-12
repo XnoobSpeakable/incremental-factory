@@ -10,13 +10,13 @@ load();
 function mine(resource: string): void {
     switch (resource) {
         case "wood":
-            player.wood = player.wood.add(player.handdrills.times(1).add(1))
+            player.wood = player.wood.add(10);
             break;
         case "stone":
-            player.stone = player.stone.add(player.handdrills.times(3).add(1));
+            player.stone = player.stone.add(player.handdrills.times(4).add(5));
             break;
         case "coal":
-            player.coal = player.coal.add(player.handdrills.times(2).add(1));
+            player.coal = player.coal.add(player.handdrills.times(1).add(1));
             break;
     }
 }
@@ -35,12 +35,19 @@ element("minecoal").onclick = () => {
 
 // CRAFTING
 
+const crafts = {
+    handdrill: {
+        wood: 250,
+        stone: 50
+    }
+}
+
 function craft(resource: string): void {
     switch (resource) {
         case "handdrill":
-            if(player.wood.gte(10) && player.stone.gte(5)) {
-                player.wood = player.wood.sub(10);
-                player.stone = player.stone.sub(5);
+            if(player.wood.gte(crafts.handdrill.wood) && player.stone.gte(crafts.handdrill.stone)) {
+                player.wood = player.wood.sub(crafts.handdrill.wood);
+                player.stone = player.stone.sub(crafts.handdrill.stone);
                 player.handdrills = player.handdrills.add(1);
             }
             break;
@@ -54,7 +61,7 @@ element("crafthanddrill").onclick = () => {
 // CRAFTING RECIPE DISPLAY
 
 element("crafthanddrill").onmouseover = () => {
-    element("recipe").textContent = "Crafting recipe: 10 Wood, 5 Stone";
+    element("recipe").textContent = `Crafting recipe: ${crafts.handdrill.wood} Wood, ${crafts.handdrill.stone} Stone`;
 }
 
 element("crafthanddrill").onmouseout = () => {
