@@ -13,7 +13,7 @@ function mine(resource: string): void {
             player.wood = player.wood.add(10);
             break;
         case "stone":
-            player.stone = player.stone.add(player.handdrills.times(4).add(5));
+            player.stone = player.stone.add(player.handdrills.times(4).add(4));
             break;
         case "coal":
             player.coal = player.coal.add(player.handdrills.times(1).add(1));
@@ -38,7 +38,7 @@ element("minecoal").onclick = () => {
 const crafts = {
     handdrill: {
         wood: 250,
-        stone: 50
+        stone: 40
     }
 }
 
