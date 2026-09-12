@@ -31,6 +31,22 @@ button:hover {
     border-color: #50A050;
 }
 
+.flexhorizontal {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: flex-start;
+    gap: 2em;
+}
+
+.flexvertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1em
+}
+
+
 :disabled {
     cursor: not-allowed;
     background-color: #010000;
@@ -39,48 +55,29 @@ button:hover {
     border-color: #010000;
 }
 
-.flexcenter {
-    display: flex;
-    justify-content: center;
-}
-
 .bordered {
     border: 2px solid black; 
 }
 
-.centered {
-    padding: 20px;
-    text-align: center; 
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.side {
-    display: flex;
-    justify-content: left;
-    padding: 20px;
-    max-width: 600px;
-    text-align: center;
-    margin: 0 0 auto 0;
-    float:left;
-}
-
-.topbiased {
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-}
-
-#version {
+#bottomright {
     position: fixed;
     bottom: 0;
     right: 0;
 }
 
-.absolutecentering {
-    position: absolute; 
-    left: 0; 
-    right: 0; 
-    margin-inline: auto; 
-    width: fit-content;
+#recipe {
+    background-color: var(--fill);
+    padding: 1em;
+    float: right;
+}
+
+#version {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#leftpanel {
+    background-color: var(--fill);
+    padding: 1em;
 }
